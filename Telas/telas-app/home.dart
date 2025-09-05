@@ -34,7 +34,13 @@ class Home extends StatelessWidget{
               )
             ),
             GestureDetector(
-              onTap: () => print(''),
+              onTap: (){
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(builder: (context) => Tela())
+                 
+//                 );
+              },
                 child: Container(
                   child: Text(
                     'Widgets',
@@ -49,6 +55,7 @@ class Home extends StatelessWidget{
                   alignment: Alignment.center
               )
             ),
+
             
             
           ]

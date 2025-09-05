@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: Tela());
-  }
-}
-
-class Tela extends StatelessWidget {
-  const Tela({super.key});
+class TelaRow extends StatelessWidget {
+  const TelaRow({super.key});
 
   @override
   Widget build(BuildContext context) {
     List<String> nomes = ['Lorenzo', 'Rafa', 'Kauan'];
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.indigo[900]
+      ),
       body: Container(
         child: ListView.builder(
           itemCount: nomes.length,
@@ -28,7 +18,7 @@ class Tela extends StatelessWidget {
             return Container(
               height: 70,
               color: Colors.indigo,
-              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              margin: EdgeInsets.only(bottom: 5),
               child: Row(
                 children: [
                   Text('$index', style: TextStyle(color: Colors.white)), 
