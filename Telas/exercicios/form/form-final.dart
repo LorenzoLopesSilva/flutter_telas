@@ -60,7 +60,9 @@ class _FormFinalState extends State<FormFinal>{
                       _nome = value!;
                     },
                     decoration: InputDecoration(
-                      label: Text("Digite seu nome: ")
+                      label: Text("Digite seu nome: "),
+                      fillColor: Colors.blue[100],
+                      filled: true
                     )
                   ),
                   TextFormField(
@@ -77,7 +79,10 @@ class _FormFinalState extends State<FormFinal>{
                       _email = value!;
                     },
                     decoration: InputDecoration(
-                      label: Text("Digite seu email: ")
+                      label: Text("Digite seu email: "),
+                      fillColor: Colors.blue[100],
+                      filled: true
+                      
                     )
                   ),
                   TextFormField(
@@ -95,14 +100,17 @@ class _FormFinalState extends State<FormFinal>{
                       _senha = value!;
                     },
                     decoration: InputDecoration(
-                      label: Text("Digite sua senha: ")
+                      label: Text("Digite sua senha: "),
+                      fillColor: Colors.blue[100],
+                      filled: true
+                      
                     )
                   ),
 
                   Row(
                     children: [
-                      ElevatedButton(
-                        child: Text("Enviar"),
+                      FilledButton(
+                        child: Text("Enviar", style: TextStyle(color: Colors.white)),
                         onPressed: (){
                           if(_formKey.currentState!.validate()){
                             _formKey.currentState!.save();
@@ -113,7 +121,12 @@ class _FormFinalState extends State<FormFinal>{
                             _senha;
                           });
 
-                        }
+                        },
+                        style: FilledButton.styleFrom(
+                          backgroundColor: Colors.indigo,
+                          fixedSize: Size(150, 50)
+                        )
+                        
                       )
                     ]
                   )
@@ -133,7 +146,7 @@ class _FormFinalState extends State<FormFinal>{
                 ),
               decoration: BoxDecoration(
                 color: Colors.indigo[900],
-                borderRadius: BorderRadius.circular(30)
+                borderRadius: BorderRadius.circular(30),
               ),
               width: double.infinity,
               height: 150,
