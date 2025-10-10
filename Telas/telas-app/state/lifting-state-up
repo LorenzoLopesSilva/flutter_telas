@@ -1,0 +1,75 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: TelaPrincipal()
+    );
+  }
+}
+
+class TelaPrincipal extends StatefulWidget{
+  const TelaPrincipal({super.key});
+  
+  @override
+  State<TelaPrincipal> createState() => _TelaPrincipalState();
+}
+
+class _TelaPrincipalState extends State<TelaPrincipal>{
+  String valor = "";
+  
+  void atualizarValor(String novoValor){
+    setState((){
+      valor = novoValor;
+    });
+  }
+  
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text("Lifting State Up")),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FilhoEntrada(onTextoMudou: atualizarValor),
+          FilhoMostra(texto: valor)
+        ]
+      )
+    );
+  }
+}
+
+class FilhoEntrada extends StatelessWidget{
+  final ValueChanged<String> onTextoMudou;
+  const FilhoEntrada({super.key, required this.onTextoMudou});
+  
+  @override
+  Widget build(BuildContext context){
+    return TextField(
+      onChanged: onTextoMudou,
+      decoration: InputDecoration(
+        hintText: "Digite algo...",
+      )    
+    );
+  }
+}
+
+class FilhoMostra extends StatelessWidget{
+  final String texto;
+  const FilhoMostra({super.key, required this.texto});
+  
+  @override
+  Widget build(BuildContext context){
+    return Text(
+      texto.isEmpty ? "Nada Digitado..." : texto,
+      style: const TextStyle(fontSize: 24)
+    );
+  }
+}
